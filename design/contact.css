@@ -1,0 +1,148 @@
+html,body{margin: 0 auto; padding: 0;}
+
+
+body{
+background:url("../images/bleu2.jpg") center;
+font-family:Arial;
+height:100%;
+width:100%;
+margin-top: 20px;
+padding:50px;
+}
+
+#formulaire{
+vertical-align:top;
+display:inline-block;
+margin-left:40px;	
+margin-top:20px;
+color:#ADFF2F;
+}
+
+
+#formulaire input{
+display:block;
+border-radius:3px;
+height:20px;
+font-family:Verdana;
+}
+
+
+#formulaire textarea{
+display:block;
+border-radius:3px;
+font-family:verdana;
+}
+
+
+input[type="submit"]{
+color:#0000CD;
+background-color:#ADFF2F;
+border:1px solid #ADFF2F;
+margin:10px;
+width:140px;
+font-size:15px;
+padding:0px;
+box-shadow:1px 1px 1px #ADFF2F;
+}
+
+input[type=submit]:active{
+ background-color:#ADFF2F;
+ box-shadow:1px 1px 1px #ADFF2F inset;
+}
+
+
+#email{
+background-color:#ADFF2F;
+opacity:0.8;
+margin-left:801px;
+width : 300px;
+height: 300 px;
+border : 1px solid black;
+vertical-align:top;
+display:inline-block;
+margin-top : -572px;
+
+}
+
+#email:hover{
+opacity:1;
+box-shadow: 6px 6px 7px black;}
+
+
+#email img{
+padding-left:35%;
+margin-top:10px;
+width:100px;
+height:100px;
+
+}
+
+
+#email p{
+padding-left:20%;
+margin-right:3px;
+}
+
+#numero{
+background-color:#ADFF2F;
+opacity:0.8;
+border : 1px solid black;
+width : 300px;
+height: 300 px;
+padding-top : 15px;
+margin-left:801px;
+margin-top:-341px;
+
+
+}
+#numero:hover{
+opacity:1;
+box-shadow: 6px 6px 7px black;}
+
+
+#numero img{
+padding-left:35%;
+
+width:100px;
+height:100px;
+
+}
+
+
+#numero p{text-align:center;
+margin-right:3px;
+
+}
+
+#adresse{
+background-color:#ADFF2F;
+opacity:0.8;
+margin-left:428px;
+border : 1px solid black;
+width : 300px;
+height: 300 px;
+padding-top : 15px;
+margin-top:-590px;
+
+}
+#adresse:hover{
+opacity:1;
+box-shadow: 6px 6px 7px black;}
+
+#adresse img{
+padding-left:37%;
+width:70px;
+height:70px;
+
+}
+
+#adresse p { text-align : center;}
+
+	
+
+.email_numero{display:inline-block;float:left;}
+
+.imgcontact {
+box-sizing: initial;
+-webkit-box-sizing: initial;
+}

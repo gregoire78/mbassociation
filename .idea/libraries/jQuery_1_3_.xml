@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="jQuery 1.3." type="javaScript">
+    <properties>
+      <option name="frameworkName" value="jQuery" />
+      <option name="frameworkVersion" value="2.1.3.min" />
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/js/jquery-2.1.3.min.js" />
+    </CLASSES>
+    <DOCUMENTATION>
+      <root url="http://api.jquery.com/" />
+    </DOCUMENTATION>
+    <SOURCES />
+  </library>
+</component>

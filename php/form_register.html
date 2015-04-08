@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>M&B assoc - Inscription</title>
+		<!-- jQuery -->
+		<script src="js/jquery-2.1.3.min.js"></script>
+		<meta name="language" content="fr-FR" >
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="icon" href="design/favicon.png">
+		<meta charset="UTF-8">
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="bootstrap-3.3.1/dist/css/bootstrap.min.css">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="bootstrap-3.3.1/dist/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="design/style1.css" >
+		<!--js Files-->
+		<!-- jQuery -->
+		<script src="js/jquery-2.1.3.min.js"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="bootstrap-3.3.1/dist/js/bootstrap.min.js"></script>
+		<!--pour le scroll-->
+		 <script src="js/jquery.nicescroll.min.js"></script>
+		 <script>
+			$(document).ready(function() {
+				var nicesx = $("html").niceScroll({touchbehavior:false,cursorcolor:"#e8e8e8",cursoropacitymax:0.6,cursorwidth:15,zindex:2,cursorborderradius:25});
+			});
+		</script>
+		<!--script info bulles-->
+		<script src='js/form_info_bulles.js'></script>
+		<script>
+			$(function () {
+				$('[data-toggle="tooltip"]').tooltip()
+			})
+			$(function () {
+				$('[data-toggle="popover"]').popover()
+			})
+		</script>
+		<!--pour les win phone et bootstrap-->
+		<script>
+			if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+		  var msViewportStyle = document.createElement('style')
+		  msViewportStyle.appendChild(
+			document.createTextNode(
+			  '@-ms-viewport{width:auto!important}'
+			)
+		  )
+		  document.querySelector('head').appendChild(msViewportStyle)
+		}
+		</script>
+		<!--pour le fond cover-->
+		<script type="text/javascript" src="js/jquery.backstretch.min.js"></script>
+		<script type="text/javascript" src="js/background.js"></script>
+		<!---->
+		<script src='js/func_verif_register.js'></script>
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div id="dede"></div>
+		<!--Barre de navigation-->
+		<?php
+			include_once('menu.php');
+		?>
+		<!--contenu principal-->
+		<section class="container-fluid" id="maincontent">
+			<!--si javascript désactivé-->
+			<noscript>
+				<div id="error_page" class="alert alert-danger" role="alert">
+				<strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong>Javascript est désactivé. Si vous avez la possibilité de l'activer, faites-le. pour savoir comment l'activer : <a class="alert-link" href="http://www.enable-javascript.com/fr/" target="_blank" title="comment activer le javascript">activer le javascript</a></div>
+			</noscript>
+			<div class="row">
+				<h1  class="col-xs-offset-1 col-sm-offset-1 col-md-offset-1">Inscrivez-vous ! <small class="hidden-xs">Remplir le formulaire ci-dessous <a type="button" class="btn btn-link" href="login" data-toggle="tooltip" data-placement="top" title="Se connecter">Se connecter</a></small></h1>
+			</div>
+			<?php
+				if(!empty($errors[18]))//si vide
+				{
+					?><div id="error_page" class="alert alert-danger" role="alert">
+					  <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong><?php echo $errors[18];?>
+					</div><?php
+				}
+				else
+				{
+			?>
+			<div class="row">
+				<form action="register" method="POST" role="form" class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-6 col-md-offset-1 col-md-3 well">
+					<div class="form-group has-feedback" id="form_pseudo_user">
+						<label class="control-label" for="pseudo_user"><b>Nom d'utilisateur</b></label>
+						<input type="text" name="pseudo_user" id="pseudo_user" placeholder="Entrez un nom d'utilisateur" class="form-control" data-placement="bottom" data-toggle="popover" title="Entrez un nom d'utilisateur" data-content="Le nom d'utilisateur ne doit pas dépasser 30 caractères !" autocomplete="off">
+						<!--message erreur--><span id="error_pseudo_user"></span>
+						<!--icon--><span id="input2Status" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+						<?php 
+							if(!empty($errors[1]))//si la variable erreur n'est pas vide ca qui veut dire qu'il y a une erreur | si existe
+							{
+								?><div class="alert alert-danger alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								  <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong><?php echo $errors[1];?>
+								</div><?php
+							}
+							else if(!empty($errors[10]))//depasse 30 caractères
+							{
+								?><div class="alert alert-danger alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								  <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong><?php echo $errors[10];?>
+								</div><?php
+							}
+							else if(!empty($errors[15]))//si pseudo existe
+							{
+								?><div class="alert alert-danger alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								  <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong><?php echo $errors[15];?>
+								</div><?php
+							}
+						?>
+					</div>
+					<div class="form-group has-feedback" id="form_firstname_user">
+						<label class="control-label" for="firstname_user"><b>Prénom</b></label>
+						<input type="text" name="firstname_user" id="firstname_user" placeholder="Entrez votre prénom" class="form-control" data-placement="bottom" data-toggle="popover" title="Entrez votre prénom" data-content="Votre prénom ne doit pas dépasser 30 caractères !" autocomplete="off">
+						<!--message erreur--><span id="error_firstname_user"></span>
+						<!--icon--><span id="input3Status" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+						<?php
+							if(!empty($errors[2]))//si pas rempli
+							{
+								?><div class="alert alert-danger alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								  <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong><?php echo $errors[2];?>
+								</div><?php
+							}
+							else if(!empty($errors[11]))//depasse 30 caractères
+							{
+								?><div class="alert alert-danger alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								  <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong><?php echo $errors[11];?>
+								</div><?php
+							}
+						?>
+					</div>
+					<div class="form-group has-feedback" id="form_lastname_user">
+						<label class="control-label" for="lastname_user"><b>Nom</b></label>
+						<input type="text" name="lastname_user" id="lastname_user" placeholder="Entrez votre Nom" class="form-control" data-placement="bottom" data-toggle="popover" title="Entrez votre nom" data-content="Votre nom ne doit pas dépasser 30 caractères !" autocomplete="off">
+						<!--message erreur--><span id="error_lastname_user"></span>
+						<!--icon--><span id="input4Status" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+						<?php
+							if(!empty($errors[3]))//si vide
+							{
+								?><div class="alert alert-danger alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								  <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong><?php echo $errors[3];?>
+								</div><?php
+							}
+							else if(!empty($errors[12]))//dépasse 30 caractères
+							{
+								?><div class="alert alert-danger alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								  <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong><?php echo $errors[12];?>
+								</div><?php
+							}
+						?>
+					</div>
+					<div class="form-group has-feedback" id="form_pw_user">
+						<label class="control-label" for="pw_user"><b>Mot de passe</b></label>
+						<input type="password" name="pw_user" id="pw_user" placeholder="Entrez un Mot de passe" class="form-control" data-placement="bottom" data-toggle="popover" title="Entrez votre mot de passe" data-content="Le mot de passe doit contenir au moins un caractère majuscule et un nombre et au moins 4 caractères">
+						<!--message erreur--><span id="error_pw_user"></span>
+						<!--icon--><span id="input5Status" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+						<?php
+							if(!empty($errors[5]))//si vide
+							{
+								?><div class="alert alert-danger alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								  <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong><?php echo $errors[5];?>
+								</div><?php
+							}
+							else if(!empty($errors[14]))//si invalide
+							{
+								?><div class="alert alert-warning alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								  <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong><?php echo $errors[14];?>
+								</div><?php
+							}
+						?>
+					</div>
+					<div class="form-group has-feedback" id="form_conf_pw_user">
+						<label class="control-label" for="conf_pw_user"><b>Confirmer le mot de passe</b></label>
+						<input type="password" name="conf_pw_user" id="conf_pw_user" placeholder="Confirmer le Mot de passe" class="form-control" data-placement="bottom" data-toggle="popover" title="Répétez votre mot de passe" data-content="Veuillez répéter ici votre mot de passe">
+						<!--message erreur--><span id="error_conf_pw_user"></span>
+						<!--icon--><span id="input6Status" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+						<?php
+							if(!empty($errors[6]))//si vide
+							{
+								?><div class="alert alert-danger alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								  <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong><?php echo $errors[6];?>
+								</div><?php
+							}
+							else if(!empty($errors[9]))//si invalide
+							{
+								?><div class="alert alert-danger alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								  <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong><?php echo $errors[9];?>
+								</div><?php
+							}
+						?>
+					</div>
+					<div class="form-group has-feedback" id="form_email_user">
+						<label class="control-label" for="email_user"><b>Mail</b></label>
+						<div class="input-group">
+							<div class="input-group-addon">@</div>
+							<input type="email" name="email_user" id="email_user" placeholder="Entrez votre e-mail" class="form-control" data-placement="bottom" data-toggle="popover" title="Entrez votre e-mail" data-content="Entrez une adresse mail valide, vous recevrez un mail pour activer votre compte ex:example@lala.com" autocomplete="off">
+						</div>
+						<!--message erreur--><span id="error_email_user"></span>
+						<!--icon--><span id="input7Status" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+						<?php
+							if(!empty($errors[4]))//si vide
+							{
+								?><div class="alert alert-danger alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								  <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong><?php echo $errors[4];?>
+								</div><?php
+							}
+							else if(!empty($errors[13]))//si invalide
+							{
+								?><div class="alert alert-danger alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								  <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong><?php echo $errors[13];?>
+								</div><?php
+							}
+							else if(!empty($errors[16]))//si existe
+							{
+								?><div class="alert alert-danger alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								  <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong><?php echo $errors[16];?>
+								</div><?php
+							}
+						?>
+					</div>
+					<div class="form-group has-feedback" id="form_checkbox">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" id="checkbox" name="regle" value="1" />  J'ai lu et j'accepte les <a href="#" title="voir les règles">règles générales du site</a>
+							</label>
+						</div>
+						<?php
+							if(!empty($errors[7]))//si vide
+							{
+								?><div class="alert alert-danger alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								  <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong><?php echo $errors[7];?>
+								</div><?php
+							}
+						?>
+					</div>
+					<div class="form-group has-feedback" id="form_captcha">
+						<label class="control-label" for="captcha">Prouvez que vous n'êtes pas un robot</label>
+						<div class="input-group" style="max-width:200px;">
+						<input type="text" name="captcha" id="captcha" placeholder="recopier ici" autocomplete="off" class="form-control" style="height:44px;">
+						<div class="input-group-addon" style="padding-right: 6px;padding-left: 6px;"><img id="captcha_image" src="captcha/image.php" alt="image_captcha" class="img-rounded"></div>
+						</div>
+						<!--message erreur--><span id="error_captcha"></span>
+						<?php
+							if(!empty($errors[8]))//si vide
+							{
+								?><div class="alert alert-danger alert-dismissible" role="alert" style="max-width:200px;">
+								  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								  <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong><?php echo $errors[8];?>
+								</div><?php
+							}
+							else if(!empty($errors[17]))//si vide
+							{
+								?><div class="alert alert-danger alert-dismissible" role="alert" style="max-width:200px;">
+								  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								  <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong><?php echo $errors[17];?>
+								</div><?php
+							}
+						?>
+					</div>
+					<span><input type="submit" name="register" class="btn btn-primary btn-lg" value=" S'inscrire " data-toggle="tooltip" data-placement="top" title="S'inscrire"></span>
+					<span><input type="reset" class="btn btn-default" value=" Effacer " data-toggle="tooltip" data-placement="top" title="Effacer les champs"></span>
+				</form>
+			</div>
+			<?php } ?>
+		</section>
+		<footer>
+			&copy;M&B Association 2015 | <a href="#" title="contact"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</a>
+		</footer>
+		<script type="text/javascript" src="js/background.js"></script>
+	</body>
+</html>

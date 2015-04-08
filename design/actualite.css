@@ -1,0 +1,103 @@
+*{
+	 margin:0;
+	 padding:0;
+}
+
+body{
+	 margin:0;
+	 padding:0;
+	 background:url("115-1.jpg") no-repeat center center fixed;
+	 -webkit-background-size: cover;
+	 -moz-background-size: cover;
+	 -o-background-size: cover;
+	 background-size: cover;
+}
+
+#menu ul
+{
+	float : right;
+	position: fixed;
+	right: 0;
+	top:0;
+    padding: 15px;
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+	z-index:1;
+	padding-left: 0;
+	padding-right:0;
+
+}
+
+#menu ul
+{
+	display:inline-block;
+	text-align:center;
+	z-index:1;
+	
+	
+}
+
+#menu ul li
+{
+	font-size:16px;
+	list-style-type:none;
+    display: inline-block;
+}
+
+#menu ul li a
+{
+
+    float : right;
+	color:white;
+	text-decoration:none;
+	font-family:verdana;
+	padding:15px;
+	-webkit-transition: all .3s ease-in;
+    -moz-transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+}
+
+#menu ul li a:link
+{
+	color:white;
+}
+
+#menu ul li a:visited
+{
+	color:white;
+}
+
+#menu ul li a:hover
+{
+	color:grey;
+	background-color:black;
+}
+
+#calendrier {
+     margin-top : 130px;
+	 padding-left : 50px;
+}	 
+
+
+textarea {
+     position : absolute;
+	 top : 245px;
+     left : 400px;
+	 background-color : rgba(255, 255, 255, 0.4);
+	 border : transparent;
+	 font-size : 15px;
+}	 
+
+textarea:hover {
+     border : 3px black solid;
+}
+
+p:hover{
+     border : 3px black solid;
+}

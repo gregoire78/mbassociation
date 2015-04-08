@@ -1,0 +1,143 @@
+*
+{
+	margin:0;
+	padding:0;
+}
+body {
+	/*background: url('http://s.bootply.com/assets/64531/green_suburb.jpg') no-repeat center center fixed;*/
+	background: url('../images/imagebackground2.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  	background-color:#333;
+  	/*font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;*/
+}
+/*fond transprent*/
+#dede
+{
+	position:fixed;
+    padding:0;
+    margin:0;
+
+	background-color:rgba(255, 255, 255, 0.44);
+	box-shadow: 1px 1px 50px rgba(255, 255, 255, 0.44) , -1px -1px 50px rgba(255, 255, 255, 0.44);
+	height:100%; 
+	width:100%;
+	z-index:1;
+}
+/*contenu*/
+#maincontent
+{
+	padding-top:70px;
+	padding-bottom:15px;
+	position:relative;
+	z-index:2;
+}
+/*formulaire*/
+#formdiv
+{
+	opacity: 0.5;
+	-webkit-transition: all .3s ease-in;
+    -moz-transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+}
+#formdiv:hover
+{
+	opacity: 1;
+	box-shadow:-1px -1px 10px rgba(219, 219, 219, 1) ,1px 1px 10px rgba(219, 219, 219, 1);
+	background: rgba(219, 219, 219, 1);
+	border-radius: 5px;
+}
+/*en tête*/
+h1 small
+{
+	color: #343434;
+}
+/*barre menu*/
+#menucontent
+{
+	z-index:3;
+}
+/*partie accueil*/
+.jumbotron
+{
+	max-width:380px;
+	height:550px;
+	display: inline-block;
+	padding: 15px;
+	opacity: 0.5;
+	-webkit-transition: all .3s ease-in;
+    -moz-transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+	vertical-align:top;
+}
+.jumbotron p 
+{
+	margin-bottom: 15px;
+	font-size: 21px;
+	font-weight: 200;
+}
+.jumbotron h1
+{
+	font-size: 36px;
+}
+.jumbotron:hover
+{
+	opacity: 1;
+	box-shadow:20px 20px 50px rgb(39, 39, 39) ,0px 0px 10px rgb(39, 39, 39);
+}
+
+#immembre
+{
+	border-radius:10px;
+}
+
+.accueil
+{
+	text-align:center;
+}
+/*eurreur page*/
+#error_page
+{
+	text-align:center;
+}
+/*active menu lien*/
+#active_lien_menu
+{
+	pointer-events:none;
+}
+/*pour fenetre flottantes*/
+.modal-dialog
+{
+	margin-top: 70px;
+}
+/*pour le profile*/
+.label_profile
+{
+	font-size:20px;
+}
+.panel
+{
+	margin-bottom: 0;
+}
+/*pied dt page*/
+footer
+{
+	position:fixed;
+	width:100%;
+	bottom:0;
+	background-color:rgb(242, 242, 242);
+	border: 1px solid #e3e3e3;
+	z-index:2;
+	text-align:center;
+}
+
+/*pagedon*/
+
+.container-fluid .impaypal {
+ padding-right:15px;
+	padding-left:15px;
+}

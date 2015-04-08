@@ -1,0 +1,40 @@
+ErrorDocument 400 http://mbassociation.fr/erreur-400
+ErrorDocument 401 http://mbassociation.fr/erreur-401
+ErrorDocument 402 http://mbassociation.fr/erreur-402
+ErrorDocument 403 http://mbassociation.fr/erreur-403
+ErrorDocument 404 http://mbassociation.fr/erreur-404
+ErrorDocument 405 http://mbassociation.fr/erreur-405
+ErrorDocument 500 http://mbassociation.fr/erreur-500
+ErrorDocument 501 http://mbassociation.fr/erreur-501
+ErrorDocument 502 http://mbassociation.fr/erreur-502
+ErrorDocument 503 http://mbassociation.fr/erreur-503
+ErrorDocument 504 http://mbassociation.fr/erreur-504
+ErrorDocument 505 http://mbassociation.fr/erreur-505
+
+Redirect permanent /php/form_register.html http://mbassociation.fr/register
+Redirect permanent /association/php/form_register.html http://10.10.163.101/association/register
+
+Redirect permanent /php/form_login.html http://mbassociation.fr/login
+Redirect permanent /association/php/form_register.html http://10.10.163.101/association/login
+
+Redirect permanent /menu.php http://mbassociation.fr
+Redirect permanent /menu http://mbassociation.fr
+
+Redirect permanent /php/connect_bdd http://mbassociation.fr/erreur-404
+Redirect permanent /association/php/connect_bdd.php http://mbassociation.fr/erreur-404
+
+Redirect permanent /php/activation.html http://mbassociation.fr/erreur-404
+Redirect permanent /association/php/activation.html http://mbassociation.fr/erreur-404
+
+Options +FollowSymlinks
+RewriteEngine On
+RewriteRule ^erreur-([0-9]+)$ erreur.php?erreur=$1 [L]
+RewriteRule ^register_$ register.php?traceur=$1 [L]
+RewriteRule ^login_$ login.php?traceur=$1 [L]
+RewriteRule ^membre_$ membre.php?traceur=$1 [L]
+RewriteRule ^_$ index.php?traceur=$1 [L]
+RewriteRule ^activation_$ activation.php?traceur=$1 [L]
+RewriteRule ^activation_(.*)_(.*)$ activation.php?log=$1&cle=$2 [L]
+
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]

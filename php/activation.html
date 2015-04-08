@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>M&B assoc - Activation compte</title>
+		<!-- jQuery -->
+		<script src="js/jquery-2.1.3.min.js"></script>
+		<meta name="language" content="fr-FR" >
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="page d'accueil du site m&b assoc">
+		<meta name="author" content="gregoire joncour">
+		<link rel="icon" href="design/favicon.png">
+		<meta charset="UTF-8">
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="bootstrap-3.3.1/dist/css/bootstrap.min.css">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="bootstrap-3.3.1/dist/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="design/style1.css" >
+	</head>
+	<body>
+		<div id="dede"></div>
+		<!--Barre de navigation-->
+		<?php
+			include_once('change_menu.php');
+		?>
+		<section class="container-fluid accueil" id="maincontent">
+			<!--si javascript désactivé-->
+			<noscript>
+				<div id="error_page" class="alert alert-danger" role="alert">
+				<strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong>Javascript est désactivé. Si vous avez la possibilité de l'activer, faites-le. pour savoir comment l'activer : <a class="alert-link" href="http://www.enable-javascript.com/fr/" target="_blank" title="comment activer le javascript">activer le javascript</a></div>
+			</noscript>
+			<?php
+				if(!empty($errors[1]))//si vide
+				{
+					?><div id="error_page" class="alert alert-danger" role="alert">
+					  <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong><?php echo $errors[1];?>
+					</div><?php
+				}
+				if(!empty($errors[2]))//si vide
+				{
+					?><div id="error_page" class="alert alert-danger" role="alert">
+					  <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong><?php echo $errors[2];?> Redirection dans <span id="compteur">
+					</div><?php
+				}
+				else if(!empty($errors[3]))//si vide
+				{
+					?><div id="error_page" class="alert alert-danger" role="alert">
+					  <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> </strong><?php echo $errors[3];?> Redirection dans <span id="compteur"></span><noscript>5s</noscript>
+					</div><?php
+				}
+				else if(!empty($success))//si vide
+				{
+					?><div id="error_page" class="alert alert-success" role="alert">
+					  <strong><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> </strong><?php echo $success;?> Redirection dans <span id="compteur"></span>
+					</div><?php
+				}
+			?>
+		</section>
+		<footer>
+			&copy;M&B Association 2015 | <a href="#" title="contact"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</a>
+		</footer>
+		<!--pour le décompte-->
+		<script type="text/javascript">
+		var temps = 5; // ici tu met le temps que tu veut
+
+		window.onload = function ()
+		{
+			debut = new Date();
+			debut = debut.getTime();
+			document.getElementById('compteur').innerHTML = temps +'s';
+			cmp = setInterval('decompte();',990);
+		};
+
+		function decompte()
+		{
+			var tmp = new Date();
+				tmp = tmp.getTime();
+			tmp = temps - ((tmp - debut)/1000);
+			if (tmp > 0) {
+				document.getElementById('compteur').innerHTML = Math.round(tmp) +'s';
+			}
+			else {
+				clearInterval(cmp); // sinon le script se sent plus et il s'arrete pu
+			}
+		}
+		</script>
+	</body>
+</html>

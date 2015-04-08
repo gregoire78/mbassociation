@@ -1,0 +1,42 @@
+*
+{
+	margin:0;
+	padding:0;
+}
+
+
+#presentation{
+	text-align: center;
+	padding-top: 80px;
+	padding-bottom: 10px;
+	background-color: #00b3ee;
+}
+
+.pro1
+{
+	display:inline-block;
+	border:1px solid #000;
+	text-align: center;
+	margin-left: 250px;
+	margin-top: 50px;
+	margin-bottom: 90px;
+	background-color: #ffffff;
+}
+
+.pro2
+{
+	display:inline-block;
+	border:1px solid #000;
+	text-align: center;
+	margin-left: 140px;
+	background-color: #ffffff;
+}
+
+footer
+{
+	position:fixed;
+	width:100%;
+	bottom:0px;
+	background-color:grey;
+	z-index:1;
+}
