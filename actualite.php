@@ -9,7 +9,7 @@
          <meta http-equiv="X-UA-Compatible" content="IE=edge">
          <link rel="icon" href="design/favicon.png">
          <meta charset="UTF-8">
-
+        
          <!-- Latest compiled and minified CSS -->
          <link rel="stylesheet" href="bootstrap-3.3.1/dist/css/bootstrap.min.css">
          <!-- Optional theme -->

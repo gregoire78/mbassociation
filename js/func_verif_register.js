@@ -132,6 +132,13 @@ $(document).ready(function(){
 	var result_quatre = true;
 	$('#conf_pw_user').bind("keyup focusout", function (){
 		var conf_pw_user = $(this).val();
+
+
+
+
+
+
+
 		conf_pw_user = $.trim(conf_pw_user);
 		var pw_user = $('#pw_user').val();
 		pw_user = $.trim(pw_user);
